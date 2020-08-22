@@ -14,5 +14,6 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 test = ["Test"]
 
 [compat]
-HTTP = "0.8.17"
-JSON = "0.21.0"
+HTTP = "^0.8.0"
+JSON = "^0.21.0"
+julia = "1"
