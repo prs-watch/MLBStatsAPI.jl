@@ -55,4 +55,30 @@ function executeapi(apiname, params)
     end
 end
 
+"""
+Wrapper function to execute game api.  
+
+e.g. 
+```
+params = Dict("gamePk" => 000000)
+gameresult = game(params)
+```
+"""
+function game(params)
+    return executeapi("game", params)
+end
+
+"""
+Wrapper function to execute game api.  
+
+e.g. 
+```
+params = Dict("sportId" => 1, "date" => "2018-07-01")
+scheduleresult = schedule(params)
+```
+"""
+function schedule(params)
+    return executeapi("schedule", params)
+end
+
 end
