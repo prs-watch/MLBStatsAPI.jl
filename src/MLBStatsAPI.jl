@@ -3,7 +3,7 @@ module MLBStatsAPI
 using HTTP, JSON
 include("endpoints.jl")
 
-export executeapi
+export game, schedulemlb, attendance, awards
 
 function __formaturl(apiinfo, params)
     url = apiinfo["url"]
@@ -29,16 +29,7 @@ function __genquery(apiinfo, params)
     return Dict(key => params[key] for key in paramkeys)
 end
 
-"""
-Execute raw MLB Stats API.
-
-e.g.
-```
-params = Dict("gamePk" => 000000)
-result = executeapi("game", params)
-```
-"""
-function executeapi(apiname, params)
+function __executeapi(apiname, params)
     apiinfo = ENDPOINTS[apiname]
     required = apiinfo["required"]
     if length(intersect(required, keys(params))) == 0
@@ -53,6 +44,58 @@ function executeapi(apiname, params)
     else
         throw(ErrorException("No data."))
     end
+end
+
+"""
+Wrapper function to execute game api.  
+
+e.g. 
+```
+params = Dict("gamePk" => 000000)
+gameresult = game(params)
+```
+"""
+function game(params)
+    return __executeapi("game", params)
+end
+
+"""
+Wrapper function to execute game api.  
+
+e.g. 
+```
+params = Dict("sportId" => 1, "date" => "2018-07-01")
+scheduleresult = schedulemlb(params)
+```
+"""
+function schedulemlb(params)
+    return __executeapi("schedule", params)
+end
+
+"""
+Wrapper function to execute attendance api.  
+
+e.g. 
+```
+params = Dict("teamId" => 100)
+attendanceresult = attendance(params)
+```
+"""
+function attendance(params)
+    return __executeapi("attendance", params)
+end
+
+"""
+Wrapper function to execute awards api.  
+
+e.g. 
+```
+params = Dict("awardId" => "MLBHOF")
+hofresult = awards(params)
+```
+"""
+function awards(params)
+    return __executeapi("awards", params)
 end
 
 end
