@@ -5,6 +5,7 @@ Endpoints' information that `MLBStatsAPI.jl` supports.
 Users can reach this information by `meta()` or `note()` function.
 """
 const ENDPOINTS = Dict(
+    # game
     "game" => Dict(
         "url" => BASE * "version/game/gamePk/feed/live",
         "version" => "v1.1",
@@ -12,6 +13,7 @@ const ENDPOINTS = Dict(
         "required" => ["gamePk"],
         "pathparams" => ["version", "gamePk"],
     ),
+    # schedule
     "schedule" => Dict(
         "url" => BASE * "version/schedule",
         "version" => "v1",
@@ -34,5 +36,29 @@ const ENDPOINTS = Dict(
         ],
         "required" => ["sportId", "gamePk", "gamePks"],
         "pathparams" => ["version"],
-    )
+    ),
+    # attendance
+    "attendance" => Dict(
+        "url" => BASE * "version/attendance",
+        "version" => "v1",
+        "params" => [
+            "teamId",
+            "leagueId",
+            "season",
+            "date",
+            "leagueListId",
+            "gameType",
+            "fields",
+        ],
+        "required" => ["teamId", "leagueId", "leagueListId"],
+        "pathparams" => ["version"],
+    ),
+    # awards
+    "awards" => Dict(
+        "url" => BASE * "version/awards/awardId/recipients",
+        "version" => "v1",
+        "params" => ["sportId", "leagueId", "season", "hydrate", "fields"],
+        "required" => ["awardId"],
+        "pathparams" => ["version", "awardId"],
+    ),
 )
