@@ -21,3 +21,10 @@ result = executeapi("game", params)
         - `executeapi`: execute raw REST API.
             - `game`
             - `schedule`
+- `v0.0.2`
+    - Close `executeapi` method.
+    - Add wrapper functions.
+        - `game`
+        - `schedulemlb`
+        - `attendance`
+        - `awards`
