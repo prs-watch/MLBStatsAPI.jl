@@ -61,4 +61,47 @@ const ENDPOINTS = Dict(
         "required" => ["awardId"],
         "pathparams" => ["version", "awardId"],
     ),
+    # draft
+    "draft" => Dict(
+        "url" => BASE * "version/draft/prospects/year",
+        "version" => "v1",
+        "params" => [
+            "limit",
+            "fields",
+            "round",
+            "name",
+            "school",
+            "state",
+            "country",
+            "position",
+            "teamId",
+            "playerId",
+            "bisPlayerId",
+        ],
+        "required" => ["year"],
+        "pathparams" => ["version", "year"],
+    ),
+    # people
+    "people" => Dict(
+        "url" => BASE * "version/people",
+        "version" => "v1",
+        "params" => ["personIds", "hydrate", "fields"],
+        "required" => ["personIds"],
+        "pathparams" => ["version"],
+    ),
+    # standings
+    "standings" => Dict(
+        "url" => BASE * "version/standings",
+        "version" => "v1",
+        "params" => [
+            "leagueId",
+            "season",
+            "standingsTypes",
+            "date",
+            "hydrate",
+            "fields",
+        ],
+        "required" => ["leagueId"],
+        "pathparams" => ["version"],
+    ),
 )

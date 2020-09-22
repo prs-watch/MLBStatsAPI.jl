@@ -3,7 +3,9 @@ module MLBStatsAPI
 using HTTP, JSON
 include("endpoints.jl")
 
-export game, schedulemlb, attendance, awards
+export game, schedulemlb, attendance, awards, draft, people, standings
+
+# --- private functions ---
 
 function __formaturl(apiinfo, params)
     url = apiinfo["url"]
@@ -45,6 +47,8 @@ function __executeapi(apiname, params)
         throw(ErrorException("No data."))
     end
 end
+
+# --- wrapper functions ---
 
 """
 Wrapper function to execute game api.  
@@ -96,6 +100,45 @@ hofresult = awards(params)
 """
 function awards(params)
     return __executeapi("awards", params)
+end
+
+"""
+Wrapper function to execute draft api.  
+
+e.g.
+```
+params = Dict("year" => 2019)
+draftresult = draft(params)
+```
+"""
+function draft(params)
+    return __executeapi("draft", params)
+end
+
+"""
+Wrapper function to execute people api.  
+
+e.g.
+```
+params = Dict("personIds" => 00000)
+peopleresult = people(params)
+```
+"""
+function people(params)
+    return __executeapi("people", params)
+end
+
+"""
+Wrapper function to execute standings api.  
+
+e.g.
+```
+params = Dict("leagueId" => 103)
+standingsresult = people(params)
+```
+"""
+function standings(params)
+    return __executeapi("standings", params)
 end
 
 end

@@ -38,3 +38,29 @@ end
         @test recp["name"] == "Hall Of Fame"
     end
 end
+
+@testset "draft" begin
+    params = Dict("year" => 2019)
+    result = draft(params)
+    queriedsize = result["queriedSize"]
+    @test queriedsize == 5134
+end
+
+@testset "people" begin
+    params = Dict("personIds" => 661255)
+    result = people(params)
+    ps = result["people"]
+    for p in ps
+        @test p["nameFirstLast"] == "Yoan Lopez"
+    end
+end
+
+@testset "standings" begin
+    params = Dict("leagueId" => 103, "season" => 2019)
+    result = standings(params)
+    records = result["records"]
+    for record in records
+        leagueid = record["league"]["id"]
+        @test leagueid == 103
+    end
+end

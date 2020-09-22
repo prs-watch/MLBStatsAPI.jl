@@ -1,7 +1,7 @@
 name = "MLBStatsAPI"
 uuid = "42ebdba7-407d-44c0-9113-87bc03bc22d1"
 authors = ["prs-watch"]
-version = "0.0.2"
+version = "0.0.3"
 
 [deps]
 HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
