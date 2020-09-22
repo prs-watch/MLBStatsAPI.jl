@@ -10,7 +10,7 @@ using MLBStatsAPI
 params = Dict(
     "gamePk" => 000000
 )
-result = executeapi("game", params)
+result = game(params)
 ```
 
 ## Changelogs
@@ -28,3 +28,10 @@ result = executeapi("game", params)
         - `schedulemlb`
         - `attendance`
         - `awards`
+- `v0.0.3`
+    - Add following functions.
+        - `draft`
+        - `people`
+        - `standings`
+        - `teams`
+        - `meta`

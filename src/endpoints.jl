@@ -61,4 +61,71 @@ const ENDPOINTS = Dict(
         "required" => ["awardId"],
         "pathparams" => ["version", "awardId"],
     ),
+    # draft
+    "draft" => Dict(
+        "url" => BASE * "version/draft/prospects/year",
+        "version" => "v1",
+        "params" => [
+            "limit",
+            "fields",
+            "round",
+            "name",
+            "school",
+            "state",
+            "country",
+            "position",
+            "teamId",
+            "playerId",
+            "bisPlayerId",
+        ],
+        "required" => ["year"],
+        "pathparams" => ["version", "year"],
+    ),
+    # people
+    "people" => Dict(
+        "url" => BASE * "version/people",
+        "version" => "v1",
+        "params" => ["personIds", "hydrate", "fields"],
+        "required" => ["personIds"],
+        "pathparams" => ["version"],
+    ),
+    # standings
+    "standings" => Dict(
+        "url" => BASE * "version/standings",
+        "version" => "v1",
+        "params" => [
+            "leagueId",
+            "season",
+            "standingsTypes",
+            "date",
+            "hydrate",
+            "fields",
+        ],
+        "required" => ["leagueId"],
+        "pathparams" => ["version"],
+    ),
+    # teams
+    "teams" => Dict(
+        "url" => BASE * "version/teams",
+        "version" => "v1",
+        "params" => [
+            "season",
+            "activeStatus",
+            "leagueIds",
+            "sportIds",
+            "gameType",
+            "hydrate",
+            "fields",
+        ],
+        "required" => [],
+        "pathparams" => ["version"],
+    ),
+    # meta
+    "meta" => Dict(
+        "url" => BASE * "version/type",
+        "version" => "v1",
+        "params" => [],
+        "required" => ["type"],
+        "pathparams" => ["version", "type"],
+    )
 )
