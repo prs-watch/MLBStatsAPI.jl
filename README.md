@@ -33,3 +33,5 @@ result = game(params)
         - `draft`
         - `people`
         - `standings`
+        - `teams`
+        - `meta`

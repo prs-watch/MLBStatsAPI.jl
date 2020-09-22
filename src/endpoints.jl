@@ -104,4 +104,28 @@ const ENDPOINTS = Dict(
         "required" => ["leagueId"],
         "pathparams" => ["version"],
     ),
+    # teams
+    "teams" => Dict(
+        "url" => BASE * "version/teams",
+        "version" => "v1",
+        "params" => [
+            "season",
+            "activeStatus",
+            "leagueIds",
+            "sportIds",
+            "gameType",
+            "hydrate",
+            "fields",
+        ],
+        "required" => [],
+        "pathparams" => ["version"],
+    ),
+    # meta
+    "meta" => Dict(
+        "url" => BASE * "version/type",
+        "version" => "v1",
+        "params" => [],
+        "required" => ["type"],
+        "pathparams" => ["version", "type"],
+    )
 )

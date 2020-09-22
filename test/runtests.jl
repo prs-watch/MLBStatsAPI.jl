@@ -64,3 +64,16 @@ end
         @test leagueid == 103
     end
 end
+
+@testset "teams" begin
+    params = Dict("season" => 2019)
+    result = teams(params)
+    tms = result["teams"]
+    @test length(tms) == 620
+end
+
+@testset "meta" begin
+    params = Dict("type" => "awards")
+    result = meta(params)
+    @test haskey(result, "awards")
+end
